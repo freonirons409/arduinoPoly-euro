@@ -10,7 +10,7 @@
 //
 //
 
-#include <synth.h>
+#include "synth.h"
 #include "MIDI_parser.h"
 
 synth edgar;        //-Make a synth
