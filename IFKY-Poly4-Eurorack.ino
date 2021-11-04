@@ -1,4 +1,6 @@
-// Arduino synth library MIDI example
+// IFKY Synths Poly-4 - Four Voice Snythesizer
+// Author: Aaron Irons
+// https://github.com/freonirons409/arduinoPoly-euro
 //
 // The arduino receives MIDI over Serial at 31250 BAUD
 //
@@ -13,8 +15,8 @@
 #include "synth.h"
 #include "MIDI_parser.h"
 
-synth edgar;        //-Make a synth
-midiParser parser;  //-Make a MIDI parser
+synth edgar;
+midiParser parser;
 
 const int shapePin = A1;
 const int lenPin = A2;
@@ -74,6 +76,7 @@ void loop()
       Serial.write(midiByte);
    }
 
+//*********WAVEFORM*********
   if(shapeVal >=0 && shapeVal < 22) {
     edgar.setWave(0,NOISE);
     edgar.setWave(1,NOISE);
@@ -142,11 +145,13 @@ void loop()
     digitalWrite(noise_LED, LOW);
   }
 
+//*********DECAY*********
   edgar.setLength(0,lenVal);
   edgar.setLength(1,lenVal);
   edgar.setLength(2,lenVal);
   edgar.setLength(3,lenVal);
 
+//*********ENVELOPE*********
   if(envVal >=0 && envVal < 33) {
     edgar.setEnvelope(0,ENVELOPE3);
     edgar.setEnvelope(1,ENVELOPE3);
@@ -168,29 +173,23 @@ void loop()
     edgar.setEnvelope(2,ENVELOPE0);
     edgar.setEnvelope(3,ENVELOPE0);
   }
-
+//*********MODULATION*********
    edgar.setMod(0,modVal);
    edgar.setMod(1,modVal);
    edgar.setMod(2,modVal);
    edgar.setMod(3,modVal);
    
   while(Serial.available())
-  {
-    
-    if(parser.update(Serial.read()))  //-Feed MIDI stream to parser and execute commands
-    {
-      switch(parser.midi_cmd)
-      {
-        //*********************************************
-        // Handle MIDI notes
-        //*********************************************
-      case 0x90: //-Channel 1 (voice 0)
-      case 0x91: //-Channel 2 (voice 1)
-      case 0x92: //-Channel 3 (voice 2)
-      case 0x93: //-Channel 4 (voice 3)
+  { 
+    if(parser.update(Serial.read())) {
+      switch(parser.midi_cmd) {
+        case 0x90:
+        case 0x91:
+        case 0x92:
+        case 0x93:
 
         voice = parser.midi_cmd-0x90;
-        if(parser.midi_2nd)  { //-Velocity not zero (could implement NOTE_OFF here);
+        if(parser.midi_2nd)  { 
           if(numNotes>3) { numNotes = 0; }
           switch(numNotes) {
              case 0 :
@@ -222,7 +221,6 @@ void loop()
 
 void serialEvent() {
   if (Serial.available()) {
-    // get the new byte:
     midiByte = (unsigned char)Serial.read();
     byteReady = true;
   }
