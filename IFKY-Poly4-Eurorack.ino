@@ -78,61 +78,6 @@ void loop()
 
 //*********WAVEFORM*********
   if(shapeVal >=0 && shapeVal < 22) {
-    edgar.setWave(0,NOISE);
-    edgar.setWave(1,NOISE);
-    edgar.setWave(2,NOISE);
-    edgar.setWave(3,NOISE);
-    digitalWrite(sin_LED, LOW);
-    digitalWrite(tri_LED, LOW);
-    digitalWrite(sqr_LED, LOW);
-    digitalWrite(saw_LED, LOW);
-    digitalWrite(rmp_LED, LOW);
-    digitalWrite(noise_LED, HIGH);
-  } else if(shapeVal > 23 && shapeVal < 42) {
-    edgar.setWave(0,RAMP);
-    edgar.setWave(1,RAMP);
-    edgar.setWave(2,RAMP);
-    edgar.setWave(3,RAMP);
-    digitalWrite(sin_LED, LOW);
-    digitalWrite(tri_LED, LOW);
-    digitalWrite(sqr_LED, LOW);
-    digitalWrite(saw_LED, LOW);
-    digitalWrite(rmp_LED, HIGH);
-    digitalWrite(noise_LED, LOW);
-  } else if(shapeVal > 43 && shapeVal < 63) {
-    edgar.setWave(0,SAW);
-    edgar.setWave(1,SAW);
-    edgar.setWave(2,SAW);
-    edgar.setWave(3,SAW);
-    digitalWrite(sin_LED, LOW);
-    digitalWrite(tri_LED, LOW);
-    digitalWrite(sqr_LED, LOW);
-    digitalWrite(saw_LED, HIGH);
-    digitalWrite(rmp_LED, LOW);
-    digitalWrite(noise_LED, LOW);
-  } else if(shapeVal > 63 && shapeVal < 84) {
-    edgar.setWave(0,SQUARE);
-    edgar.setWave(1,SQUARE);
-    edgar.setWave(2,SQUARE);
-    edgar.setWave(3,SQUARE);
-    digitalWrite(sin_LED, LOW);
-    digitalWrite(tri_LED, LOW);
-    digitalWrite(sqr_LED, HIGH);
-    digitalWrite(saw_LED, LOW);
-    digitalWrite(rmp_LED, LOW);
-    digitalWrite(noise_LED, LOW);
-  } else if(shapeVal > 83 && shapeVal < 106) {
-    edgar.setWave(0,TRIANGLE);
-    edgar.setWave(1,TRIANGLE);
-    edgar.setWave(2,TRIANGLE);
-    edgar.setWave(3,TRIANGLE);
-    digitalWrite(sin_LED, LOW);
-    digitalWrite(tri_LED, HIGH);
-    digitalWrite(sqr_LED, LOW);
-    digitalWrite(saw_LED, LOW);
-    digitalWrite(rmp_LED, LOW);
-    digitalWrite(noise_LED, LOW);
-  } else if(shapeVal > 105 && shapeVal < 128) {
     edgar.setWave(0, SINE);
     edgar.setWave(1, SINE);
     edgar.setWave(2, SINE);
@@ -143,6 +88,61 @@ void loop()
     digitalWrite(saw_LED, LOW);
     digitalWrite(rmp_LED, LOW);
     digitalWrite(noise_LED, LOW);
+  } else if(shapeVal > 23 && shapeVal < 42) {
+    edgar.setWave(0,TRIANGLE);
+    edgar.setWave(1,TRIANGLE);
+    edgar.setWave(2,TRIANGLE);
+    edgar.setWave(3,TRIANGLE);
+    digitalWrite(sin_LED, LOW);
+    digitalWrite(tri_LED, HIGH);
+    digitalWrite(sqr_LED, LOW);
+    digitalWrite(saw_LED, LOW);
+    digitalWrite(rmp_LED, LOW);
+    digitalWrite(noise_LED, LOW);
+  } else if(shapeVal > 43 && shapeVal < 63) {
+    edgar.setWave(0,SQUARE);
+    edgar.setWave(1,SQUARE);
+    edgar.setWave(2,SQUARE);
+    edgar.setWave(3,SQUARE);
+    digitalWrite(sin_LED, LOW);
+    digitalWrite(tri_LED, LOW);
+    digitalWrite(sqr_LED, HIGH);
+    digitalWrite(saw_LED, LOW);
+    digitalWrite(rmp_LED, LOW);
+    digitalWrite(noise_LED, LOW);
+  } else if(shapeVal > 63 && shapeVal < 84) {
+    edgar.setWave(0,SAW);
+    edgar.setWave(1,SAW);
+    edgar.setWave(2,SAW);
+    edgar.setWave(3,SAW);
+    digitalWrite(sin_LED, LOW);
+    digitalWrite(tri_LED, LOW);
+    digitalWrite(sqr_LED, LOW);
+    digitalWrite(saw_LED, HIGH);
+    digitalWrite(rmp_LED, LOW);
+    digitalWrite(noise_LED, LOW);
+  } else if(shapeVal > 83 && shapeVal < 106) {
+    edgar.setWave(0,RAMP);
+    edgar.setWave(1,RAMP);
+    edgar.setWave(2,RAMP);
+    edgar.setWave(3,RAMP);
+    digitalWrite(sin_LED, LOW);
+    digitalWrite(tri_LED, LOW);
+    digitalWrite(sqr_LED, LOW);
+    digitalWrite(saw_LED, LOW);
+    digitalWrite(rmp_LED, HIGH);
+    digitalWrite(noise_LED, LOW);
+  } else if(shapeVal > 105 && shapeVal < 128) {
+    edgar.setWave(0,NOISE);
+    edgar.setWave(1,NOISE);
+    edgar.setWave(2,NOISE);
+    edgar.setWave(3,NOISE);
+    digitalWrite(sin_LED, LOW);
+    digitalWrite(tri_LED, LOW);
+    digitalWrite(sqr_LED, LOW);
+    digitalWrite(saw_LED, LOW);
+    digitalWrite(rmp_LED, LOW);
+    digitalWrite(noise_LED, HIGH);
   }
 
 //*********DECAY*********
